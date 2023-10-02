@@ -1,10 +1,19 @@
 from rest_framework import serializers
 from demo.models import *
 
+
+class AdvisorSerializer_(serializers.ModelSerializer):
+	class Meta:
+		model = Advisor
+		fields ='__all__'
+
+
+
 class DepertmentSerializer(serializers.ModelSerializer):
+	advisor=AdvisorSerializer_(many=True)
 	class Meta:
 		model = Depertment
-		fields =['dname']
+		fields ='__all__'
 
 # id soho print korbe
 #class CourseSerializerid(serializers.ModelSerializer):
